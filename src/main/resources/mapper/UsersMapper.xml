@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.UsersMapper">
+    <resultMap id="rm" type="users">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="address" column="address"/>
+        <collection property="ordersList" ofType="orders">
+            <id property="id" column="oid"/>
+            <result property="number" column="number"/>
+        </collection>
+    </resultMap>
+    <select id="findUserAndOrdersByUid" resultMap="rm" parameterType="int">
+        SELECT u.`id`,u.`username`,u.`address`,o.`id` oid,o.`number`
+        FROM tb_user u,tb_orders o
+        WHERE u.id=#{id}
+        AND o.`user_id`=u.`id`
+    </select>
+
+</mapper>

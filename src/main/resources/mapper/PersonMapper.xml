@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mapper.PersonMapper">
+    <resultMap id="rm" type="person">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="age" column="age"/>
+        <result property="sex" column="sex"/>
+        <association property="card" javaType="IdCard">
+             <id property="id" column="card_id"/>
+             <result property="code" column="CODE"/>
+        </association>
+    </resultMap>
+    <select id="findPersonById" resultMap="rm">
+        SELECT p.*,c.CODE FROM tb_person p,tb_idcard c
+        WHERE p.id=1
+        AND  c.id=p.`card_id`
+    </select>
+</mapper>
