@@ -6,11 +6,11 @@
     <resultMap id="rm" type="Orders">
         <id property="id" column="id"/>
         <result property="nubmer" column="nubmer"/>
-
+        <collection property="productList" column="id" ofType="Orders" select=""/>
     </resultMap>
     <select id="findOrdersAndProductByOid" resultMap="rm" parameterType="int">
         SELECT * FROM tb_orders
-        WHERE id=1
+        WHERE id=#{id}
     </select>
 
 </mapper>

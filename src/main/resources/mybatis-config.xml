@@ -24,6 +24,7 @@
         <mapper resource="mapper/CustomerMapper.xml"/>
         <mapper resource="mapper/PersonMapper.xml"/>
         <mapper resource="mapper/UsersMapper.xml"/>
-
+        <mapper resource="mapper/ProductMapper.xml"/>
+        <mapper resource="mapper/OrdersMapper.xml"/>
     </mappers>
 </configuration>

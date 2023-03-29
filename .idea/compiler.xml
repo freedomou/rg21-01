@@ -9,5 +9,8 @@
         <module name="rg21-01" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="untitled" target="17" />
+    </bytecodeTargetLevel>
   </component>
 </project>
